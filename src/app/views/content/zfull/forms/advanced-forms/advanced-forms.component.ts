@@ -4,8 +4,8 @@ import {IOption} from 'ng-select';
 @Component({
   templateUrl: 'advanced-forms.component.html',
   styleUrls: [
-    '../../../../scss/vendors/bs-datepicker/bs-datepicker.scss',
-    '../../../../scss/vendors/ng-select/ng-select.scss'
+    '../../../../../../scss/vendors/bs-datepicker/bs-datepicker.scss',
+    '../../../../../../scss/vendors/ng-select/ng-select.scss'
   ],
   encapsulation: ViewEncapsulation.None
 })

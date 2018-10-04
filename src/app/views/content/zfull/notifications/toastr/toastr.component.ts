@@ -3,7 +3,7 @@ import { ToasterModule, ToasterService, ToasterConfig } from 'angular2-toaster/a
 
 @Component({
   templateUrl: 'toastr.component.html',
-  styleUrls: ['../../../../scss/vendors/toastr/toastr.scss'],
+  styleUrls: ['../../../../../../scss/vendors/toastr/toastr.scss'],
   encapsulation: ViewEncapsulation.None,
   providers: [ToasterService]
 })

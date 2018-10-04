@@ -34,7 +34,7 @@ const colors: any = {
 
 @Component({
   templateUrl: 'calendar.component.html',
-  styleUrls: ['../../../../scss/vendors/angular-calendar/angular-calendar.scss'],
+  styleUrls: ['../../../../../../scss/vendors/angular-calendar/angular-calendar.scss'],
   encapsulation: ViewEncapsulation.None
 })
 export class CalendarComponent {
