@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
-import { AuthService } from '../../services/auth.service';
+import { AuthService } from '../../../services/auth.service';
 
 @Component({
   templateUrl: 'forgot-company-login.component.html'
@@ -28,7 +28,7 @@ export class ForgotCompanyLoginComponent {
   }
 
   back(): void {
-    this.router.navigate(['auth/company-login']);
+    this.router.navigate(['/company-login']);
   }
 
 }

@@ -4,9 +4,14 @@ import { Routes, RouterModule } from '@angular/router';
 // Import Containers
 import { DefaultLayoutComponent } from './containers';
 
+// Route Protection For Top Level Routes
+import { AuthGuard } from './services/auth-guard.service';
+
 import { P404Component } from './views/error/404.component';
 import { P500Component } from './views/error/500.component';
 import { LoginComponent } from './views/auth/login/login.component';
+import { CompanyLoginComponent } from './views/auth/login/company-login.component';
+import { ForgotCompanyLoginComponent } from './views/auth/login/forgot-company-login.component';
 import { RegisterComponent } from './views/auth/register/register.component';
 
 export const routes: Routes = [
@@ -37,10 +42,26 @@ export const routes: Routes = [
     }
   },
   {
+    path: 'company-login',
+    canActivate: [AuthGuard],
+    component: CompanyLoginComponent,
+    data: {
+      title: 'Company Login Page'
+    }
+  },
+  {
     path: 'register',
     component: RegisterComponent,
     data: {
       title: 'Register Page'
+    }
+  },
+  {
+    path: 'forgot-company-login',
+    canActivate: [AuthGuard],
+    component: ForgotCompanyLoginComponent,
+    data: {
+      title: 'Forgot Company Login Page'
     }
   },
   {

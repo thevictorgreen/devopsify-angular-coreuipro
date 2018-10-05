@@ -1,13 +1,13 @@
 import { Component, OnInit, ViewEncapsulation } from '@angular/core';
 import { Router } from '@angular/router';
-import { AuthService } from '../../services/auth.service';
-import { AccountService } from '../../services/account.service';
-import { DataService } from '../../services/data.service';
-import { ToasterModule, ToasterService, ToasterConfig }  from 'angular2-toaster/angular2-toaster';
+import { AuthService } from '../../../services/auth.service';
+import { AccountService } from '../../../services/account.service';
+import { DataService } from '../../../services/data.service';
+//import { ToasterModule, ToasterService, ToasterConfig }  from 'angular2-toaster/angular2-toaster';
 
 @Component({
   templateUrl: 'company-login.component.html',
-  styleUrls: ['../../../scss/vendors/toastr/toastr.scss'],
+  styleUrls: ['../../../../scss/vendors/toastr/toastr.scss'],
   encapsulation: ViewEncapsulation.None
 })
 export class CompanyLoginComponent implements OnInit {
@@ -25,13 +25,13 @@ export class CompanyLoginComponent implements OnInit {
   }
   // END ALERT MESSAGING
 
-  private toasterService: ToasterService;
+  //private toasterService: ToasterService;
 
-  public toasterconfig : ToasterConfig =
+  /*public toasterconfig : ToasterConfig =
     new ToasterConfig({
       tapToDismiss: true,
       timeout: 5000
-    });
+    });*/
 
   userDetails:any
   companyID:string = '';
@@ -49,8 +49,8 @@ export class CompanyLoginComponent implements OnInit {
 
   authResult:any;
 
-  constructor( toasterService: ToasterService, private accountService:AccountService, private authService: AuthService, private router: Router, private dataService:DataService ) {
-    this.toasterService = toasterService;
+  constructor( private accountService:AccountService, private authService: AuthService, private router: Router, private dataService:DataService ) {
+    //this.toasterService = toasterService;
   }
 
 
@@ -73,8 +73,8 @@ export class CompanyLoginComponent implements OnInit {
         if ( this.authResult.status == 'SUCCESS' ) {
           //console.log(this.authResult.data);
           //this.dataService.updateAccount( this.authResult.data );
-          this.toasterService.pop('success', 'Success Toaster', 'This is toaster description');
-          this.router.navigate(['content/dashboard']);
+          //this.toasterService.pop('success', 'Success Toaster', 'This is toaster description');
+          this.router.navigate(['/dashboard']);
         }
         else if ( this.authResult.status == 'error' ) {
           console.log( 'APPLICATION ERROR' );
@@ -89,11 +89,11 @@ export class CompanyLoginComponent implements OnInit {
   }
 
   registerCompany(): void {
-    this.router.navigate(['auth/register']);
+    this.router.navigate(['/register']);
   }
 
   forgotCompany(): void {
-    this.router.navigate(['auth/forgot-company-login']);
+    this.router.navigate(['/forgot-company-login']);
   }
 
 }

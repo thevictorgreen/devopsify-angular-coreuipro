@@ -2,6 +2,10 @@ import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NgModule } from '@angular/core';
 import { LocationStrategy, HashLocationStrategy } from '@angular/common';
+import { FormsModule } from '@angular/forms';
+import { CommonModule } from '@angular/common';
+import { HttpModule } from '@angular/http';
+import { HttpClientModule } from '@angular/common/http';
 
 import { PerfectScrollbarModule } from 'ngx-perfect-scrollbar';
 import { PERFECT_SCROLLBAR_CONFIG } from 'ngx-perfect-scrollbar';
@@ -31,6 +35,8 @@ import { DefaultLayoutComponent } from './containers';
 import { P404Component } from './views/error/404.component';
 import { P500Component } from './views/error/500.component';
 import { LoginComponent } from './views/auth/login/login.component';
+import { CompanyLoginComponent } from './views/auth/login/company-login.component';
+import { ForgotCompanyLoginComponent } from './views/auth/login/forgot-company-login.component';
 import { RegisterComponent } from './views/auth/register/register.component';
 
 const APP_CONTAINERS = [
@@ -57,6 +63,8 @@ import { ChartsModule } from 'ng2-charts/ng2-charts';
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
+    FormsModule,
+    CommonModule,
     AppRoutingModule,
     AppAsideModule,
     AppBreadcrumbModule.forRoot(),
@@ -69,7 +77,9 @@ import { ChartsModule } from 'ng2-charts/ng2-charts';
     AngularFireModule.initializeApp(environment.firebase, 'angular-auth-firebase'),
     AngularFireDatabaseModule,
     AngularFireAuthModule,
-    ChartsModule
+    ChartsModule,
+    HttpModule,
+    HttpClientModule
   ],
   declarations: [
     AppComponent,
@@ -77,7 +87,9 @@ import { ChartsModule } from 'ng2-charts/ng2-charts';
     P404Component,
     P500Component,
     LoginComponent,
-    RegisterComponent
+    RegisterComponent,
+    CompanyLoginComponent,
+    ForgotCompanyLoginComponent
   ],
   providers: [
     AuthService,
