@@ -1,0 +1,194 @@
+<div class="animated fadeIn">
+  <div class="row">
+    <div class="col-6 col-lg-3">
+      <div class="card">
+        <div class="card-body p-3 clearfix">
+          <i class="fa fa-cogs bg-primary p-3 font-2xl mr-3 float-left"></i>
+          <div class="text-uppercase text-muted font-weight-bold font-xs text-right mb-0 mt-2">Clients</div>
+          <div class="h5 text-right">4.589</div>
+        </div>
+        <div class="card-footer px-3 py-2">
+          <a class="font-weight-bold font-xs btn-block text-muted" href="#">View More <i class="fa fa-angle-right float-right font-lg"></i></a>
+        </div>
+      </div>
+    </div><!--/.col-->
+
+    <div class="col-6 col-lg-3">
+      <div class="card">
+        <div class="card-body p-3 clearfix">
+          <i class="fa fa-laptop bg-info p-3 font-2xl mr-3 float-left"></i>
+          <div class="text-uppercase text-muted font-weight-bold font-xs text-right mb-0 mt-2">Deals</div>
+          <div class="h5 text-right">789</div>
+        </div>
+        <div class="card-footer px-3 py-2">
+          <a class="font-weight-bold font-xs btn-block text-muted" href="#">View More <i class="fa fa-angle-right float-right font-lg"></i></a>
+        </div>
+      </div>
+    </div><!--/.col-->
+
+    <div class="col-6 col-lg-3">
+      <div class="card">
+        <div class="card-body p-3 clearfix">
+          <i class="fa fa-moon-o bg-warning p-3 font-2xl mr-3 float-left"></i>
+          <div class="text-uppercase text-muted font-weight-bold font-xs text-right mb-0 mt-2">Income</div>
+          <div class="h5 text-right">$1.999</div>
+        </div>
+        <div class="card-footer px-3 py-2">
+          <a class="font-weight-bold font-xs btn-block text-muted" href="#">View More <i class="fa fa-angle-right float-right font-lg"></i></a>
+        </div>
+      </div>
+    </div><!--/.col-->
+
+    <div class="col-6 col-lg-3">
+      <div class="card">
+        <div class="card-body p-3 clearfix">
+          <i class="fa fa-bell bg-danger p-3 font-2xl mr-3 float-left"></i>
+          <div class="text-uppercase text-muted font-weight-bold font-xs text-right mb-0 mt-2">Account</div>
+          <div class="h5 text-right">$100K</div>
+        </div>
+        <div class="card-footer px-3 py-2">
+          <a class="font-weight-bold font-xs btn-block text-muted" href="#">View More <i class="fa fa-angle-right float-right font-lg"></i></a>
+        </div>
+      </div>
+    </div><!--/.col-->
+  </div><!--/.row-->
+
+  <div class="card">
+    <div class="card-header">
+      Traffic
+    </div>
+    <div class="card-body">
+      <div class="chart-wrapper" style="height:300px;margin-top:40px;">
+        <canvas baseChart class="chart"
+        [datasets]="mainChartData"
+        [labels]="mainChartLabels"
+        [options]="mainChartOptions"
+        [colors]="mainChartColours"
+        [legend]="mainChartLegend"
+        [chartType]="mainChartType"
+        (chartHover)="chartHovered($event)"
+        (chartClick)="chartClicked($event)"></canvas>
+      </div>
+    </div>
+    <div class="card-footer p-0">
+      <ul>
+        <li class="b-r-1 py-4"><strong>17.781</strong><br>Pageviews</li>
+        <li class="b-r-1 py-4"><strong>9.879</strong><br>Unique Users</li>
+        <li class="b-r-1 py-4"><strong>00:02:58</strong><br>Avg. Visit Duration</li>
+        <li class="py-4"><strong>59,83%</strong><br>Bounce Rate</li>
+      </ul>
+    </div>
+  </div>
+  <!--/.card-->
+  <div class="row">
+    <div class="col-sm-6 col-lg-3">
+      <div class="social-box facebook">
+        <i class="fa fa-facebook"></i>
+        <div class="chart-wrapper">
+          <canvas baseChart class="chart"
+          [datasets]="socialChartData1"
+          [labels]="socialChartLabels"
+          [options]="socialChartOptions"
+          [colors]="socialChartColours"
+          [legend]="socialChartLegend"
+          [chartType]="socialChartType"
+          (chartHover)="chartHovered($event)"
+          (chartClick)="chartClicked($event)"></canvas>
+        </div>
+        <ul>
+          <li>
+            <strong>89k</strong>
+            <span>friends</span>
+          </li>
+          <li>
+            <strong>459</strong>
+            <span>feeds</span>
+          </li>
+        </ul>
+      </div>
+      <!--/.social-box-->
+    </div><!--/.col-->
+    <div class="col-sm-6 col-lg-3">
+      <div class="social-box twitter">
+        <i class="fa fa-twitter"></i>
+        <div class="chart-wrapper">
+          <canvas baseChart class="chart"
+          [datasets]="socialChartData2"
+          [labels]="socialChartLabels"
+          [options]="socialChartOptions"
+          [colors]="socialChartColours"
+          [legend]="socialChartLegend"
+          [chartType]="socialChartType"
+          (chartHover)="chartHovered($event)"
+          (chartClick)="chartClicked($event)"></canvas>
+        </div>
+        <ul>
+          <li>
+            <strong>973k</strong>
+            <span>followers</span>
+          </li>
+          <li>
+            <strong>1.792</strong>
+            <span>tweets</span>
+          </li>
+        </ul>
+      </div>
+      <!--/.social-box-->
+    </div><!--/.col-->
+    <div class="col-sm-6 col-lg-3">
+      <div class="social-box linkedin">
+        <i class="fa fa-linkedin"></i>
+        <div class="chart-wrapper">
+          <canvas baseChart class="chart"
+          [datasets]="socialChartData3"
+          [labels]="socialChartLabels"
+          [options]="socialChartOptions"
+          [colors]="socialChartColours"
+          [legend]="socialChartLegend"
+          [chartType]="socialChartType"
+          (chartHover)="chartHovered($event)"
+          (chartClick)="chartClicked($event)"></canvas>
+        </div>
+        <ul>
+          <li>
+            <strong>500+</strong>
+            <span>contacts</span>
+          </li>
+          <li>
+            <strong>292</strong>
+            <span>feeds</span>
+          </li>
+        </ul>
+      </div>
+      <!--/.social-box-->
+    </div><!--/.col-->
+    <div class="col-sm-6 col-lg-3">
+      <div class="social-box google-plus">
+        <i class="fa fa-google-plus"></i>
+        <div class="chart-wrapper">
+          <canvas baseChart class="chart"
+          [datasets]="socialChartData4"
+          [labels]="socialChartLabels"
+          [options]="socialChartOptions"
+          [colors]="socialChartColours"
+          [legend]="socialChartLegend"
+          [chartType]="socialChartType"
+          (chartHover)="chartHovered($event)"
+          (chartClick)="chartClicked($event)"></canvas>
+        </div>
+        <ul>
+          <li>
+            <strong>894</strong>
+            <span>followers</span>
+          </li>
+          <li>
+            <strong>92</strong>
+            <span>circles</span>
+          </li>
+        </ul>
+      </div>
+      <!--/.social-box-->
+    </div><!--/.col-->
+  </div><!--/.row-->
+  
+</div>

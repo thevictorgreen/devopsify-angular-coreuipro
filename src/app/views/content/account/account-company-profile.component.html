@@ -1,0 +1,104 @@
+<div class="animated fadeIn">
+
+
+  <div class="row">
+
+    <!-- USER HAS PERMISSION -->
+    <div *ngIf="currentPermissions.company_profile_write == true">
+      <div class="card">
+        <div class="card-header">
+          Company Profile
+        </div>
+        <div class="card-body">
+          <div><!-- ALERT CODE -->
+            <div class="alert alert-success" *ngIf="showSuccess" (click)="hideMessages()">
+              <strong>Success</strong> <div>{{alertMsg}}</div>
+            </div>
+            <div class="alert alert-danger" *ngIf="showError" (click)="hideMessages()">
+              <strong>Error</strong> <div>{{alertMsg}}</div>
+            </div>
+          </div><!-- ALERT CODE -->
+
+          <div class="input-group mb-3">
+            <div class="input-group-prepend">
+              <span class="input-group-text"><i class="icon-user"></i></span>
+            </div>
+            <input type="text" [(ngModel)]="currentAccount.company.company_name" class="form-control" placeholder="Company Name">
+          </div>
+
+          <div class="input-group mb-3">
+            <div class="input-group-prepend">
+              <span class="input-group-text"><i class="icon-user"></i></span>
+            </div>
+            <input type="text" [(ngModel)]="currentAccount.company.company_address" class="form-control" placeholder="Company Address">
+          </div>
+
+          <div class="input-group mb-3">
+            <div class="input-group-prepend">
+              <span class="input-group-text"><i class="icon-user"></i></span>
+            </div>
+            <input type="text" [(ngModel)]="currentAccount.company.company_city" class="form-control" placeholder="Company City">
+          </div>
+
+          <div class="input-group mb-3">
+            <div class="input-group-prepend">
+              <span class="input-group-text"><i class="icon-user"></i></span>
+            </div>
+            <input type="text" [(ngModel)]="currentAccount.company.company_state" class="form-control" placeholder="Company State">
+          </div>
+
+          <div class="input-group mb-3">
+            <div class="input-group-prepend">
+              <span class="input-group-text"><i class="icon-user"></i></span>
+            </div>
+            <input type="text" [(ngModel)]="currentAccount.company.company_zip" class="form-control" placeholder="Company Zip">
+          </div>
+
+          <div class="input-group mb-3">
+            <div class="input-group-prepend">
+              <span class="input-group-text"><i class="icon-user"></i></span>
+            </div>
+            <input type="text" [(ngModel)]="currentAccount.company.company_phone" class="form-control" placeholder="Company Phone">
+          </div>
+
+          <div class="input-group mb-3">
+            <div class="input-group-prepend">
+              <span class="input-group-text"><i class="icon-user"></i></span>
+            </div>
+            <input type="text" [(ngModel)]="currentAccount.company.company_domain" class="form-control" placeholder="Company Domain">
+          </div>
+
+        </div>
+        <div class="card-footer">
+          <ul>
+            <li></li>
+          </ul>
+          <button type="button" class="btn btn-success">Save</button>
+          <button type="button" class="btn btn-primary">Cancel</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- USER DOES NOT HAVE PERMISSION -->
+   <div *ngIf="currentPermissions.company_profile_write == false">
+     <div class="card">
+       <div class="card-header">
+         Access Denied
+       </div>
+       <div class="card-body">
+         Consult your account administrator
+       </div>
+       <div class="card-footer">
+         <ul>
+           <li></li>
+         </ul>
+         <button type="button" class="btn btn-primary">Back</button>
+       </div>
+     </div>
+   </div>
+
+
+  </div>
+
+
+</div>
