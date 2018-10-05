@@ -15,6 +15,9 @@ import { AngularFireDatabaseModule } from "angularfire2/database";
 import { AuthService } from './services/auth.service';
 import { AuthGuard } from './services/auth-guard.service';
 import { DataService } from './services/data.service';
+import { AccountService } from './services/account.service';
+import { PermissionsService } from './services/permissions.service';
+import { StripeService } from './services/stripe.service';
 
 const DEFAULT_PERFECT_SCROLLBAR_CONFIG: PerfectScrollbarConfigInterface = {
   suppressScrollX: true
@@ -80,6 +83,9 @@ import { ChartsModule } from 'ng2-charts/ng2-charts';
     AuthService,
     AuthGuard,
     DataService,
+    AccountService,
+    PermissionsService,
+    StripeService,
     {
       provide: LocationStrategy,
       useClass: HashLocationStrategy
