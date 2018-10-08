@@ -72,6 +72,42 @@ export const routes: Routes = [
     },
     children: [
       {
+        path: 'dashboard',
+        loadChildren: './views/content/zfull/dashboard/dashboard.module#DashboardModule'
+      },
+      {
+        path: 'account',
+        loadChildren: './views/content/account/account.module#AccountModule'
+      },
+      {
+        path: 'clouds',
+        loadChildren: './views/content/clouds/clouds.module#CloudsModule'
+      },
+      {
+        path: 'domains',
+        loadChildren: './views/content/domains/domains.module#DomainsModule'
+      },
+      {
+        path: 'namespaces',
+        loadChildren: './views/content/namespaces/namespaces.module#NamespacesModule'
+      },
+      {
+        path: 'projects',
+        loadChildren: './views/content/projects/projects.module#ProjectsModule'
+      },
+      {
+        path: 'services',
+        loadChildren: './views/content/services/services.module#ServicesModule'
+      },
+      {
+        path: 'servers',
+        loadChildren: './views/content/servers/servers.module#ServersModule'
+      },
+      {
+        path: 'applications',
+        loadChildren: './views/content/applications/applications.module#ApplicationsModule'
+      },
+      {
         path: 'base',
         loadChildren: './views/content/zfull/base/base.module#BaseModule'
       },
@@ -82,10 +118,6 @@ export const routes: Routes = [
       {
         path: 'charts',
         loadChildren: './views/content/zfull/chartjs/chartjs.module#ChartJSModule'
-      },
-      {
-        path: 'dashboard',
-        loadChildren: './views/content/zfull/dashboard/dashboard.module#DashboardModule'
       },
       {
         path: 'editors',

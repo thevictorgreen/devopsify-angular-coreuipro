@@ -179,7 +179,7 @@ export class RegisterComponent implements OnInit {
         if ( this.authResult.status == 'ok' ) {
           //console.log(this.authResult.data.length);
           //this.location.back();
-          this.router.navigate(['auth/company-login']);
+          this.router.navigate(['company-login']);
         }
         else if ( this.authResult.status == 'error' ) {
           console.log( 'APPLICATION ERROR' );
@@ -194,7 +194,7 @@ export class RegisterComponent implements OnInit {
   }
 
   cancel(): void {
-    this.router.navigate(['auth/company-login']);
+    this.router.navigate(['company-login']);
   }
 
 }
