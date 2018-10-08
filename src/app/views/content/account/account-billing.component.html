@@ -1,109 +1,98 @@
 <div class="animated fadeIn">
 
-
-  <div class="row">
-
-    <div *ngIf="currentPermissions.billing_write == true">
-
-      <table class="table table-bordered">
-        <thead>
-          <tr>
-            <th>Brand</th>
-            <th>Expires Month</th>
-            <th>Expires Year</th>
-            <th>Last 4</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr *ngFor="let card of currentAccount.company.company_billing.cards">
-            <td>{{card.brand}}</td>
-            <td>{{card.exp_month}}</td>
-            <td>{{card.exp_year}}</td>
-            <td>{{card.last4}}</td>
-          </tr>
-        </tbody>
-      </table>
-
-    <div>
-
-  </div>
-
-
-  <div class="row">
-
-    <!-- USER HAS PERMISSION -->
-    <div *ngIf="currentPermissions.billing_write == true">
-      <div class="card">
-        <div class="card-header">
-          Add New Card
-        </div>
-        <div class="card-body">
-          <div><!-- ALERT CODE -->
-            <div class="alert alert-success" *ngIf="showSuccess" (click)="hideMessages()">
-              <strong>Success</strong> <div>{{alertMsg}}</div>
-            </div>
-            <div class="alert alert-danger" *ngIf="showError" (click)="hideMessages()">
-              <strong>Error</strong> <div>{{alertMsg}}</div>
-            </div>
-          </div><!-- ALERT CODE -->
-          <div class="input-group mb-3">
-            <div class="input-group-prepend">
-              <span class="input-group-text"><i class="icon-user"></i></span>
-            </div>
-            <input type="text" [(ngModel)]="card.number" class="form-control" placeholder="Credit Card Number">
-          </div>
-
-          <div class="input-group mb-3">
-            <div class="input-group-prepend">
-              <span class="input-group-text">@</span>
-            </div>
-            <input type="text" [(ngModel)]="card.exp_month" class="form-control" placeholder="Expires Month">
-          </div>
-
-          <div class="input-group mb-3">
-            <div class="input-group-prepend">
-              <span class="input-group-text"><i class="icon-lock"></i></span>
-            </div>
-            <input type="text" [(ngModel)]="card.exp_year" class="form-control" placeholder="Expires Year">
-          </div>
-
-          <div class="input-group mb-4">
-            <div class="input-group-prepend">
-              <span class="input-group-text"><i class="icon-lock"></i></span>
-            </div>
-            <input type="text" [(ngModel)]="card.cvc" class="form-control" placeholder="CVC Code">
-          </div>
-        </div>
-        <div class="card-footer">
-          <ul>
-            <li></li>
-          </ul>
-          <button (click)="addCard()" type="button" class="btn btn-success">Save</button>
-          <button type="button" class="btn btn-primary">Cancel</button>
+  <div *ngIf="currentPermissions.billing_write == true">
+    <div class="card">
+      <div class="card-header">
+        Account Billing Details
+        <!--<div class="card-header-actions">
+          <a href="https://github.com/KillerCodeMonkey/ngx-quill" class="card-header-action"><small class="text-muted">docs</small></a>
+        </div>-->
+      </div>
+      <div class="card-body">
+        <div class="row">
+          <table class="table table-bordered">
+            <thead>
+              <tr>
+                <th>Brand</th>
+                <th>Expires Month</th>
+                <th>Expires Year</th>
+                <th>Last 4</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let card of currentAccount.company.company_billing.cards">
+                <td>{{card.brand}}</td>
+                <td>{{card.exp_month}}</td>
+                <td>{{card.exp_year}}</td>
+                <td>{{card.last4}}</td>
+              </tr>
+            </tbody>
+          </table>
         </div>
       </div>
     </div>
 
-    <!-- USER DOES NOT HAVE PERMISSION -->
-   <div *ngIf="currentPermissions.billing_write == false">
-     <div class="card">
-       <div class="card-header">
-         Access Denied
-       </div>
-       <div class="card-body">
-         Consult your account administrator
-       </div>
-       <div class="card-footer">
-         <ul>
-           <li></li>
-         </ul>
-         <button type="button" class="btn btn-primary">Back</button>
-       </div>
-     </div>
-   </div>
-
-
+    <div class="card">
+      <div class="card-header">
+        Add Card
+        <!--<div class="card-header-actions">
+          <a href="https://github.com/KillerCodeMonkey/ngx-quill" class="card-header-action"><small class="text-muted">docs</small></a>
+        </div>-->
+      </div>
+      <div class="card-body">
+        <div><!-- ALERT CODE -->
+          <div class="alert alert-success" *ngIf="showSuccess" (click)="hideMessages()">
+            <strong>Success</strong> <div>{{alertMsg}}</div>
+          </div>
+          <div class="alert alert-danger" *ngIf="showError" (click)="hideMessages()">
+            <strong>Error</strong> <div>{{alertMsg}}</div>
+          </div>
+        </div><!-- ALERT CODE -->
+        <div class="input-group mb-3">
+          <div class="input-group-prepend">
+            <span class="input-group-text"><i class="icon-user"></i></span>
+          </div>
+          <input type="text" [(ngModel)]="card.number" class="form-control" placeholder="Credit Card Number">
+        </div>
+        <div class="input-group mb-3">
+          <div class="input-group-prepend">
+            <span class="input-group-text">@</span>
+          </div>
+          <input type="text" [(ngModel)]="card.exp_month" class="form-control" placeholder="Expires Month">
+        </div>
+        <div class="input-group mb-3">
+          <div class="input-group-prepend">
+            <span class="input-group-text"><i class="icon-lock"></i></span>
+          </div>
+          <input type="text" [(ngModel)]="card.exp_year" class="form-control" placeholder="Expires Year">
+        </div>
+        <div class="input-group mb-4">
+          <div class="input-group-prepend">
+            <span class="input-group-text"><i class="icon-lock"></i></span>
+          </div>
+          <input type="text" [(ngModel)]="card.cvc" class="form-control" placeholder="CVC Code">
+        </div>
+      </div>
+      <div class="card-footer">
+        <button (click)="addCard()" type="button" class="btn btn-success">Save</button>
+        <button type="button" class="btn btn-primary">Cancel</button>
+      </div>
+    </div>
   </div>
 
+
+  <div *ngIf="currentPermissions.billing_write == false">
+    <div class="card">
+      <div class="card-header">
+        Access Denied
+      </div>
+      <div class="card-body">
+        Consult your account administrator
+      </div>
+      <div class="card-footer">
+        <button type="button" class="btn btn-primary">Back</button>
+      </div>
+    </div>
+  </div>
 
 </div>

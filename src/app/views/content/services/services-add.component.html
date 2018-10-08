@@ -1,76 +1,69 @@
 <div class="animated fadeIn">
 
-
-  <div class="row">
-
-    <!-- USER HAS PAYMENT METHOD ON FIILE -->
-    <div *ngIf="hasCardOnFile == true">
-      <!-- USER HAS PERMISSION -->
-      <div *ngIf="currentPermissions.services_write == true">
-        <div class="card">
-          <div class="card-header">
-            Add Services
-          </div>
-          <div class="card-body">
-            <div><!-- ALERT CODE -->
-              <div class="alert alert-success" *ngIf="showSuccess" (click)="hideMessages()">
-                <strong>Success</strong> <div>{{alertMsg}}</div>
-              </div>
-              <div class="alert alert-danger" *ngIf="showError" (click)="hideMessages()">
-                <strong>Error</strong> <div>{{alertMsg}}</div>
-              </div>
-            </div><!-- ALERT CODE -->
-            Content Here
-          </div>
-          <div class="card-footer">
-            <ul>
-              <li></li>
-            </ul>
-            <button type="button" class="btn btn-success">Save</button>
-            <button type="button" class="btn btn-primary">Cancel</button>
-          </div>
-        </div>
-      </div>
-
-      <!-- USER DOES NOT HAVE PERMISSION -->
-     <div *ngIf="currentPermissions.services_write == false">
-       <div class="card">
-         <div class="card-header">
-           Access Denied
-         </div>
-         <div class="card-body">
-           Consult your account administrator
-         </div>
-         <div class="card-footer">
-           <ul>
-             <li></li>
-           </ul>
-           <button type="button" class="btn btn-primary">Back</button>
-         </div>
-       </div>
-     </div>
-   </div>
-
-    <!-- USER HAS NO PAYMENT METHOD ON FIILE -->
-    <div *ngIf="hasCardOnFile == false">
+  <!-- USER HAS PAYMENT METHOD ON FIILE -->
+  <div *ngIf="hasCardOnFile == true">
+    <!-- USER HAS PERMISSION -->
+    <div *ngIf="currentPermissions.services_write == true">
       <div class="card">
         <div class="card-header">
-          Not Authorized
+          Add Services
         </div>
         <div class="card-body">
-          Update Payment method
+          <div><!-- ALERT CODE -->
+            <div class="alert alert-success" *ngIf="showSuccess" (click)="hideMessages()">
+              <strong>Success</strong> <div>{{alertMsg}}</div>
+            </div>
+            <div class="alert alert-danger" *ngIf="showError" (click)="hideMessages()">
+              <strong>Error</strong> <div>{{alertMsg}}</div>
+            </div>
+          </div><!-- ALERT CODE -->
+          Content Here
         </div>
         <div class="card-footer">
           <ul>
             <li></li>
           </ul>
-          <button type="button" class="btn btn-primary">Back</button>
+          <button type="button" class="btn btn-success">Save</button>
+          <button type="button" class="btn btn-primary">Cancel</button>
         </div>
       </div>
     </div>
 
+    <!-- USER DOES NOT HAVE PERMISSION -->
+   <div *ngIf="currentPermissions.services_write == false">
+     <div class="card">
+       <div class="card-header">
+         Access Denied
+       </div>
+       <div class="card-body">
+         Consult your account administrator
+       </div>
+       <div class="card-footer">
+         <ul>
+           <li></li>
+         </ul>
+         <button type="button" class="btn btn-primary">Back</button>
+       </div>
+     </div>
+   </div>
+ </div>
 
-  </div>
-
+ <!-- USER HAS NO PAYMENT METHOD ON FIILE -->
+ <div *ngIf="hasCardOnFile == false">
+   <div class="card">
+     <div class="card-header">
+       Not Authorized
+     </div>
+     <div class="card-body">
+       Update Payment method
+     </div>
+     <div class="card-footer">
+       <ul>
+         <li></li>
+       </ul>
+       <button type="button" class="btn btn-primary">Back</button>
+     </div>
+   </div>
+ </div>
 
 </div>

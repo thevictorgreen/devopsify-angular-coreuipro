@@ -1,76 +1,63 @@
 <div class="animated fadeIn">
 
-
-  <div class="row">
-
-    <!-- USER HAS PERMISSION -->
-    <div *ngIf="currentPermissions.user_profile_read == true">
-      <div class="card">
-        <div class="card-header">
-          User Profile
-        </div>
-        <div class="card-body">
-          <div><!-- ALERT CODE -->
-            <div class="alert alert-success" *ngIf="showSuccess" (click)="hideMessages()">
-              <strong>Success</strong> <div>{{alertMsg}}</div>
-            </div>
-            <div class="alert alert-danger" *ngIf="showError" (click)="hideMessages()">
-              <strong>Error</strong> <div>{{alertMsg}}</div>
-            </div>
-          </div><!-- ALERT CODE -->
-
-          <div class="input-group mb-3">
-            <div class="input-group-prepend">
-              <span class="input-group-text"><i class="icon-user"></i></span>
-            </div>
-            <input type="text" [(ngModel)]="currentUser.displayName" class="form-control" placeholder="Display Name" readonly>
+  <!-- USER HAS PERMISSION -->
+  <div *ngIf="currentPermissions.user_profile_read == true">
+    <div class="card">
+      <div class="card-header">
+        User Profile
+      </div>
+      <div class="card-body">
+        <div><!-- ALERT CODE -->
+          <div class="alert alert-success" *ngIf="showSuccess" (click)="hideMessages()">
+            <strong>Success</strong> <div>{{alertMsg}}</div>
           </div>
-
-          <div class="input-group mb-3">
-            <div class="input-group-prepend">
-              <span class="input-group-text"><i class="icon-user"></i></span>
-            </div>
-            <input type="text" [(ngModel)]="currentUser.email" class="form-control" placeholder="Email" readonly>
+          <div class="alert alert-danger" *ngIf="showError" (click)="hideMessages()">
+            <strong>Error</strong> <div>{{alertMsg}}</div>
           </div>
+        </div><!-- ALERT CODE -->
 
-          <div class="input-group mb-3">
-            <div class="input-group-prepend">
-              <span class="input-group-text"><i class="icon-user"></i></span>
-            </div>
-            <input type="text" [(ngModel)]="currentUser.photoURL" class="form-control" placeholder="PhotoUrl" readonly>
+        <div class="input-group mb-3">
+          <div class="input-group-prepend">
+            <span class="input-group-text"><i class="icon-user"></i></span>
           </div>
+          <input type="text" [(ngModel)]="currentUser.displayName" class="form-control" placeholder="Display Name" readonly>
+        </div>
 
+        <div class="input-group mb-3">
+          <div class="input-group-prepend">
+            <span class="input-group-text"><i class="icon-user"></i></span>
+          </div>
+          <input type="text" [(ngModel)]="currentUser.email" class="form-control" placeholder="Email" readonly>
         </div>
-        <div class="card-footer">
-          <ul>
-            <li></li>
-          </ul>
-          <button type="button" class="btn btn-success">Save</button>
-          <button type="button" class="btn btn-primary">Cancel</button>
+
+        <div class="input-group mb-3">
+          <div class="input-group-prepend">
+            <span class="input-group-text"><i class="icon-user"></i></span>
+          </div>
+          <input type="text" [(ngModel)]="currentUser.photoURL" class="form-control" placeholder="PhotoUrl" readonly>
         </div>
+
+      </div>
+      <div class="card-footer">
+        <button type="button" class="btn btn-success">Save</button>
+        <button type="button" class="btn btn-primary">Cancel</button>
       </div>
     </div>
-
-    <!-- USER DOES NOT HAVE PERMISSION -->
-   <div *ngIf="currentPermissions.user_profile_read == false">
-     <div class="card">
-       <div class="card-header">
-         Access Denied
-       </div>
-       <div class="card-body">
-         Consult your account administrator
-       </div>
-       <div class="card-footer">
-         <ul>
-           <li></li>
-         </ul>
-         <button type="button" class="btn btn-primary">Back</button>
-       </div>
-     </div>
-   </div>
-
-
   </div>
 
+  <!-- USER DOES NOT HAVE PERMISSION -->
+ <div *ngIf="currentPermissions.user_profile_read == false">
+   <div class="card">
+     <div class="card-header">
+       Access Denied
+     </div>
+     <div class="card-body">
+       Consult your account administrator
+     </div>
+     <div class="card-footer">
+       <button type="button" class="btn btn-primary">Back</button>
+     </div>
+   </div>
+ </div>
 
 </div>
