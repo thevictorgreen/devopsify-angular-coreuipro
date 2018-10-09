@@ -14,7 +14,8 @@ export class LoginComponent {
   signInWithGoogle() {
     this.authService.signInWithGoogle()
     .then((res) => {
-      this.zone.run(() => { this.router.navigate(['/company-login']) });
+      //this.zone.run(() => { this.router.navigate(['/company-login']) });
+      this.zone.run(() => { this.router.navigate(['/user-authorize']) });
     })
     .catch((err) => console.log(err));
   }

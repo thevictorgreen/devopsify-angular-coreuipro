@@ -57,7 +57,7 @@ export class AccountBillingComponent implements OnInit {
     // Get CompanyObject
     this.dataService.currentAccount.subscribe(account => this.currentAccount = account);
     // Get Logged in user
-    console.log( this.currentAccount );
+    //console.log( this.currentAccount );
     this.dataService.currentUser.subscribe(user => this.currentUser = user);
     // Get CurrentPermissions
     this.permissionsService.currentPermissions.subscribe(permissions => this.currentPermissions = permissions);

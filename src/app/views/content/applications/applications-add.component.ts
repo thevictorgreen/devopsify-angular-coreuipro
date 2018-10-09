@@ -40,6 +40,7 @@ export class ApplicationsAddComponent implements OnInit {
     this.permissionsService.currentPermissions.subscribe(permissions => this.currentPermissions = permissions);
     this.permissionsService.hasCardOnFile.subscribe(status => this.hasCardOnFile = status);
     this.permissionsService.updatePermissions();
+    //console.log(this.currentAccount);
   }
 
 }

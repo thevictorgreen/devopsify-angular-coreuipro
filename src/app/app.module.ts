@@ -36,6 +36,7 @@ import { P404Component } from './views/error/404.component';
 import { P500Component } from './views/error/500.component';
 import { LoginComponent } from './views/auth/login/login.component';
 import { CompanyLoginComponent } from './views/auth/login/company-login.component';
+import { UserAuthorizeComponent } from './views/auth/login/user-authorize.component';
 import { ForgotCompanyLoginComponent } from './views/auth/login/forgot-company-login.component';
 import { RegisterComponent } from './views/auth/register/register.component';
 
@@ -89,7 +90,8 @@ import { ChartsModule } from 'ng2-charts/ng2-charts';
     LoginComponent,
     RegisterComponent,
     CompanyLoginComponent,
-    ForgotCompanyLoginComponent
+    ForgotCompanyLoginComponent,
+    UserAuthorizeComponent
   ],
   providers: [
     AuthService,

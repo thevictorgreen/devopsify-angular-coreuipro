@@ -58,10 +58,13 @@ export class PermissionsService {
     }
     for (var i = 0;i < this.currentAccount.company.roles.length;i++) {
       if (user_role == this.currentAccount.company.roles[i].role_name) {
+        //console.log(user_role);
         this.permissionsSubject.next(this.currentAccount.company.roles[i].permissions);
         break;
       }
     }
+    //console.log(uid);
+    //console.log(user_role);
   }
 
   constructor(private dataService: DataService) {

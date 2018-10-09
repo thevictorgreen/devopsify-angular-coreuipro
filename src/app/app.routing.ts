@@ -11,6 +11,7 @@ import { P404Component } from './views/error/404.component';
 import { P500Component } from './views/error/500.component';
 import { LoginComponent } from './views/auth/login/login.component';
 import { CompanyLoginComponent } from './views/auth/login/company-login.component';
+import { UserAuthorizeComponent } from './views/auth/login/user-authorize.component';
 import { ForgotCompanyLoginComponent } from './views/auth/login/forgot-company-login.component';
 import { RegisterComponent } from './views/auth/register/register.component';
 
@@ -47,6 +48,14 @@ export const routes: Routes = [
     component: CompanyLoginComponent,
     data: {
       title: 'Company Login Page'
+    }
+  },
+  {
+    path: 'user-authorize',
+    canActivate: [AuthGuard],
+    component: UserAuthorizeComponent,
+    data: {
+      title: 'Authorize User'
     }
   },
   {

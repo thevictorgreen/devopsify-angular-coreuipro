@@ -3,50 +3,17 @@ import { Router } from '@angular/router';
 import { AuthService } from '../../../services/auth.service';
 import { AccountService } from '../../../services/account.service';
 import { DataService } from '../../../services/data.service';
-//import { ToasterModule, ToasterService, ToasterConfig }  from 'angular2-toaster/angular2-toaster';
 
 @Component({
-  templateUrl: 'company-login.component.html',
-  styleUrls: ['../../../../scss/vendors/toastr/toastr.scss'],
+  templateUrl: 'user-authorize.component.html',
   encapsulation: ViewEncapsulation.None
 })
-export class CompanyLoginComponent implements OnInit {
+export class UserAuthorizeComponent implements OnInit {
 
-  // BEGIN ALERT MESSAGING
-  alertMsg:string = '';
-  setMsg(msg:string):void {
-    this.alertMsg = msg;
-  }
-  showSuccess:boolean = false;
-  showError:boolean = false;
-  hideMessages() {
-    this.showSuccess = false;
-    this.showError = false;
-  }
-  // END ALERT MESSAGING
-
-  //private toasterService: ToasterService;
-
-  /*public toasterconfig : ToasterConfig =
-    new ToasterConfig({
-      tapToDismiss: true,
-      timeout: 5000
-    });*/
 
   userDetails:any
   companyID:string = '';
 
-  //by _id
-  /*authRequest = {
-    auth: {
-      "username":'',
-      "password":''
-    },
-    account: {
-      "_id":''
-    },
-    "email":''
-  }*/
 
   //by user email
   authRequest = {
@@ -63,20 +30,17 @@ export class CompanyLoginComponent implements OnInit {
   authResult:any;
 
   constructor( private accountService:AccountService, private authService: AuthService, private router: Router, private dataService:DataService ) {
-    //this.toasterService = toasterService;
   }
 
 
   ngOnInit():void {
     this.dataService.currentUser.subscribe(user => this.userDetails = user);
-    //console.log( this.userDetails );
-    //this.router.navigate(['/dashboard']);
+    this.signIntoCompany();
   }
 
 
   signIntoCompany(): void {
 
-    //this.authRequest.account._id = this.companyID;
     this.authRequest.account.tags = this.userDetails.email;
     this.authRequest.email = this.userDetails.email;
 
@@ -88,17 +52,16 @@ export class CompanyLoginComponent implements OnInit {
         if ( this.authResult.status == 'SUCCESS' ) {
           //console.log(this.authResult.data);
           this.dataService.updateAccount( this.authResult.data );
-          //this.toasterService.pop('success', 'Success Toaster', 'This is toaster description');
           this.router.navigate(['/dashboard']);
         }
-        else if ( this.authResult.status == 'error' ) {
-          console.log( 'APPLICATION ERROR' );
+        else if ( this.authResult.status == 'ERROR' ) {
+          console.log( 'USER ACCOUNT NOT AUTHORIZED' );
+          this.router.navigate(['/register']);
         }
       }
     },
     error => {
       console.log(error);
-      //this.showError = true;
     }
   );
   }

@@ -135,6 +135,7 @@ export class RegisterComponent implements OnInit {
     this.account.company.authorized_users[0].user_id = this.authService.userDetails.uid;
     this.account.company.authorized_users[0].user_login = this.authService.userDetails.email;
     this.account.company.authorized_users[0].user_email = this.authService.userDetails.email;
+    this.account.tags.push( this.authService.userDetails.email );
     this.account.company.authorized_users[0].user_name = this.authService.userDetails.displayName;
     this.account.company.authorized_users[0].user_photo = this.authService.userDetails.photoURL;
   }
@@ -179,7 +180,7 @@ export class RegisterComponent implements OnInit {
         if ( this.authResult.status == 'ok' ) {
           //console.log(this.authResult.data.length);
           //this.location.back();
-          this.router.navigate(['company-login']);
+          this.router.navigate(['login']);
         }
         else if ( this.authResult.status == 'error' ) {
           console.log( 'APPLICATION ERROR' );
@@ -194,7 +195,7 @@ export class RegisterComponent implements OnInit {
   }
 
   cancel(): void {
-    this.router.navigate(['company-login']);
+    this.router.navigate(['login']);
   }
 
 }
