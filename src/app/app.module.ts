@@ -22,6 +22,7 @@ import { DataService } from './services/data.service';
 import { AccountService } from './services/account.service';
 import { PermissionsService } from './services/permissions.service';
 import { StripeService } from './services/stripe.service';
+import { EmailService } from './services/email.service';
 
 const DEFAULT_PERFECT_SCROLLBAR_CONFIG: PerfectScrollbarConfigInterface = {
   suppressScrollX: true
@@ -100,6 +101,7 @@ import { ChartsModule } from 'ng2-charts/ng2-charts';
     AccountService,
     PermissionsService,
     StripeService,
+    EmailService,
     {
       provide: LocationStrategy,
       useClass: HashLocationStrategy

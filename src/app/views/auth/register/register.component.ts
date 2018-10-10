@@ -3,6 +3,7 @@ import { Router } from '@angular/router';
 import { AuthService } from '../../../services/auth.service';
 import { AccountService } from '../../../services/account.service';
 import { StripeService } from '../../../services/stripe.service';
+import { EmailService } from '../../../services/email.service';
 
 @Component({
   selector: 'app-dashboard',
@@ -121,12 +122,18 @@ export class RegisterComponent implements OnInit {
     },
     account: {
 
+    },
+    message: {
+      "from":'',
+      "to":'',
+      "subject":'',
+      "text":''
     }
   };
 
   authResult:any;
 
-  constructor(private stripeService: StripeService, private accountService: AccountService, private authService: AuthService, private router: Router) { }
+  constructor(private stripeService: StripeService, private accountService: AccountService, private authService: AuthService, private emailService: EmailService, private router: Router) { }
 
   ngOnInit():void {
     var cid = this.generateID();
@@ -147,6 +154,28 @@ export class RegisterComponent implements OnInit {
       text += possible.charAt( Math.floor( Math.random() * possible.length) );
     }
     return text;
+  }
+
+  sendEmailMessageToUser(): void {
+    this.emailService.sendEmailMessage( this.authRequest ).subscribe(success => {
+      //console.log(success);
+      this.authResult = success;
+      if ( this.authResult.status ) {
+        if ( this.authResult.status == 'ok' ) {
+          //console.log(this.authResult.data.length);
+          //this.location.back();
+          //this.router.navigate(['login']);
+        }
+        else if ( this.authResult.status == 'error' ) {
+          console.log( 'APPLICATION ERROR' );
+        }
+      }
+    },
+    error => {
+      console.log(error);
+      //this.showError = true;
+    }
+  );
   }
 
   registerCompany(): void {
@@ -172,6 +201,11 @@ export class RegisterComponent implements OnInit {
   );*/
     this.account.tags.push( this.account.company.company_domain );
     this.authRequest.account = this.account;
+    this.authRequest.message.from = "postmaster@sandbox0799542bbd5a4827b4cd5bc885a92907.mailgun.org";
+    this.authRequest.message.to = this.authService.userDetails.displayName + " <" + this.authService.userDetails.email + ">";
+    this.authRequest.message.subject = "Wellcome to our App";
+    this.authRequest.message.text = "You have made a grave mistake. Villian voice!!!";
+
 
     this.accountService.addAccount( this.authRequest ).subscribe(success => {
       //console.log(success);
@@ -180,6 +214,7 @@ export class RegisterComponent implements OnInit {
         if ( this.authResult.status == 'ok' ) {
           //console.log(this.authResult.data.length);
           //this.location.back();
+          this.sendEmailMessageToUser();
           this.router.navigate(['login']);
         }
         else if ( this.authResult.status == 'error' ) {
