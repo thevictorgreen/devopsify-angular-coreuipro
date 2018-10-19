@@ -14,7 +14,8 @@ const httpOptions = {
 @Injectable()
 export class AccountService {
 
-  private url:string = "http://localhost:3000/accounts";
+  //private url:string = "http://localhost:3000/accounts";
+  private url:string = "https://accountmicro.vdigital.io/accounts";
 
 
   constructor( private dataService: DataService, private http: HttpClient ) {}

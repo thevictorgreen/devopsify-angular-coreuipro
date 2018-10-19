@@ -14,7 +14,8 @@ const httpOptions = {
 @Injectable()
 export class EmailService {
 
-  private url:string = "http://localhost:3000/accounts/sendemail";
+  //private url:string = "http://localhost:3000/accounts/sendemail";
+  private url:string = "https://accountmicro.vdigital.io/accounts/sendemail";
 
 
   constructor( private dataService: DataService, private http: HttpClient ) {}
