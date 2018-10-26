@@ -18,12 +18,21 @@ node("cicd-build-slaves") {
     }
 
 
-    stage("BUILD") {
+    stage("BUILD AND TAG WITH COMMIT_ID") {
       // BUILD AND PUSH IMAGE TO DOCKERHUB
       // COPY ID FROM JENKINS CREDENTIALS EXAMPLE ID cba2f3ad-7020-45db-9dc1-cd371a11fd85
       docker.withRegistry("https://index.docker.io/v1/","REPLACE_ME") {
         //DOCKERHUB USERNAME / MICROSERVICE NAME EXAMPLE vdigital/myapp-userportal
         def app = docker.build("REPLACE_ME:${commit_id}",".").push()
+      }
+    }
+
+    stage("DOCKER BUILD AND TAG WITH LATEST") {
+      // BUILD AND PUSH IMAGE TO DOCKERHUB
+      // COPY ID FROM JENKINS CREDENTIALS EXAMPLE ID cba2f3ad-7020-45db-9dc1-cd371a11fd85
+      docker.withRegistry("https://index.docker.io/v1/","REPLACE_ME") {
+        //DOCKERHUB USERNAME / MICROSERVICE NAME EXAMPLE vdigital/myapp-userportal
+        def app = docker.build("REPLACE_ME:latest","../.").push()
       }
     }
 
